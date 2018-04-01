@@ -11,19 +11,10 @@
 
               <a href="{{route('levels.index')}}" class="btn btn-light">Levels</a>
 
-              <a href="#" class="btn btn-light">Users</a>
+              <a href="{{route('users.index')}}" class="btn btn-light">Users</a>
             </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">Dashboard</div>
-
-            <div class="card-body">
-                You are logged in!
-            </div>
-        </div>
-      </div>
+      </div>    
     </div>
 </div>
 @endsection

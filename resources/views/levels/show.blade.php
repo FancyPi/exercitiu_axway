@@ -27,7 +27,7 @@
         <ul class="list-group">
           <li class="list-group-item">ID: {{$level->id}}</li>
           <li class="list-group-item">Name: {{$level->name}}</li>
-          <li class="list-group-item">Craeted: {{$level->created_at}}</li>
+          <li class="list-group-item">Created: {{$level->created_at}}</li>
           <li class="list-group-item">Updated: {{$level->updated_at}}</li>
         </ul>
       </div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserSkillPivotTable extends Migration
+class CreateSkillHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateUserSkillPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_skill', function (Blueprint $table) {
+        Schema::create('skill_histories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('skill_id');
-            $table->integer('level');
+            $table->integer('current_skill_level');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateUserSkillPivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_skill');
+        Schema::dropIfExists('skill_histories');
     }
 }

@@ -27,7 +27,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    #belongsToMany Relationship
     public function skills(){
-      return $this->belongsToMany('App\Skill', 'user_skill');
+      return $this->belongsToMany('App\Skill', 'user_skill')->withPivot('level');
+    }
+
+    #hasMany Relationship
+    public function histories(){
+      return $this->hasMany('App\SkillHistory');
     }
 }
