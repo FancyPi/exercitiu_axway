@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Skill;
+use App\Level;
 
 
-class SkillsController extends Controller
+class LevelsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,10 @@ class SkillsController extends Controller
     public function index()
     {
 
-      $skills = Skill::all();
+      $levels = Level::all();
 
-      return view('skills.index', [
-        'skills' => $skills
+      return view('levels.index', [
+        'levels' => $levels
       ]);
     }
 
@@ -30,7 +30,7 @@ class SkillsController extends Controller
      */
     public function create()
     {
-        return view('skills.create');
+        return view('levels.create');
     }
 
     /**
@@ -44,20 +44,20 @@ class SkillsController extends Controller
 
       $name = $request->input('name');
 
-      $skill = new Skill();
+      $level = new Level();
 
-      $skill->name = $name;
+      $level->name = $name;
 
 
-      if($skill->save()){
-        flash('New Skill Created Successfully!')->success();
+      if($level->save()){
+        flash('New Level Created Successfully!')->success();
 
       }else{
         flash('An error occurred!')->error();
 
       }
 
-      return redirect(route('skills.index'));
+      return redirect(route('levels.index'));
 
     }
 
@@ -70,10 +70,10 @@ class SkillsController extends Controller
     public function show($id)
     {
 
-      $skill =  Skill::find($id);
+      $level =  Level::find($id);
 
-      return view('skills.show', [
-        'skill' => $skill
+      return view('levels.show', [
+        'level' => $level
       ]);
 
     }
@@ -87,9 +87,9 @@ class SkillsController extends Controller
     public function edit($id)
     {
 
-      $skill = Skill::find($id);
+      $level = Level::find($id);
 
-      return view('skills.edit', ['skill' => $skill]);
+      return view('levels.edit', ['level' => $level]);
 
     }
 
@@ -105,16 +105,16 @@ class SkillsController extends Controller
 
         $name = $request->input('name');
 
-        $skill = Skill::find($id);
+        $level = Level::find($id);
 
-        $skill->name = $name;
+        $level->name = $name;
 
-        if($skill->save()){
-          flash('Skill updated Succesfully!')->info();
+        if($level->save()){
+          flash('Level updated Succesfully!')->info();
         }else{
           flash('Error occurred while updating!')->error();
         }
-        return redirect(route('skills.show', ['skill' => $skill->id]));
+        return redirect(route('levels.show', ['level' => $level->id]));
 
     }
 
@@ -127,9 +127,11 @@ class SkillsController extends Controller
     public function destroy($id)
     {
 
-      Skill::destroy($id);
-      flash('Skill Deleted!')->error();
-      return redirect(route('skills.index'));
+      Level::destroy($id);
+
+      flash('Level Deleted!')->error();
+
+      return redirect(route('level.index'));
 
     }
 }
