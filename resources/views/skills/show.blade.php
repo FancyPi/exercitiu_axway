@@ -18,13 +18,13 @@
           {!! Form::token() !!}
           <a href="{{ route('skills.edit', ['skill' => $skill->id]) }}" class="btn btn-info ml-2">Edit</a>
           {!! Form::submit('DELETE', ['class' => 'btn btn-danger']) !!}
-
           {!! Form::close() !!}
         </div>
       </div>
 
       <div class="col-lg-4">
         <ul class="list-group">
+          <li class="list-group-item">ID: {{$skill->id}}</li>
           <li class="list-group-item">Name: {{$skill->name}}</li>
           <li class="list-group-item">Craeted: {{$skill->created_at}}</li>
           <li class="list-group-item">Updated: {{$skill->updated_at}}</li>
